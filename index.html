@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indica Aracati - Profissionais Autônomos de Aracati-CE</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;line-height:1.6;color:#333}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+nav{background:#FF6B00;padding:15px 0;position:sticky;top:0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav h1{color:#fff;font-size:28px}
+nav ul{display:flex;list-style:none;gap:30px}
+nav a{color:#fff;text-decoration:none;font-weight:600}
+.hero{background:linear-gradient(135deg,#FF6B00,#FF8C42);color:#fff;padding:80px 0;text-align:center}
+.hero h2{font-size:48px;margin-bottom:20px}
+.hero p{font-size:20px;margin-bottom:30px}
+.btn{background:#25D366;color:#fff;padding:15px 40px;border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+section{padding:60px 0}
+section h2{text-align:center;font-size:36px;margin-bottom:40px;color:#FF6B00}
+.bg-cinza{background:#f8f9fa}
+.busca-box{max-width:600px;margin:0 auto 40px}
+.busca-box input{width:100%;padding:15px;border:2px solid #ddd;border-radius:8px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:25px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.card h3{font-size:22px;margin-bottom:10px;color:#FF6B00}
+.card p{color:#666;margin:8px 0}
+.card .btn{width:100%;margin-top:15px}
+form{max-width:600px;margin:0 auto;background:#fff;padding:40px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+form label{display:block;margin:15px 0 5px;font-weight:600}
+form input{width:100%;padding:12px;border:2px solid #ddd;border-radius:8px;font-size:16px;margin-bottom:10px}
+form button{width:100%;margin-top:20px;background:#FF6B00}
+footer{background:#1F2937;color:#fff;padding:40px 0;text-align:center}
+footer a{color:#FF6B00;text-decoration:none}
+.hidden{display:none}
+.pix-box{background:#fff3cd;border:2px solid #FF6B00;padding:20px;border-radius:8px;text-align:center;margin:20px 0}
+.pix-chave{font-size:28px;font-weight:700;color:#FF6B00;margin:15px 0;word-break:break-all;font-family:monospace;padding:15px;background:#fff;border-radius:6px;border:2px dashed #FF6B00}
+.pix-info{background:#e7f3ff;border:2px solid #0066cc;padding:15px;border-radius:8px;margin:15px 0;text-align:center}
+.pix-info p{color:#0066cc;margin:5px 0}
+.copy-btn{background:#FF6B00;color:#fff;padding:12px 25px;border:none;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;font-size:16px}
+.copy-btn:hover{background:#E55A00}
+.instrucoes{background:#f0f0f0;border-left:4px solid #FF6B00;padding:15px;margin:15px 0;border-radius:4px;text-align:left}
+.instrucoes ol{margin-left:20px}
+.instrucoes li{margin:8px 0}
+@media(max-width:768px){nav ul{display:none}.hero h2{font-size:32px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="container"><h1>INDICA ARACATI</h1><ul><li><a href="#inicio">Início</a></li><li><a href="#profissionais">Profissionais</a></li><li><a href="#cadastro">Cadastrar</a></li><li><a href="#sobre">Sobre</a></li></ul></div></nav>
+<section class="hero" id="inicio"><div class="container"><h2>Encontre Profissionais em Aracati</h2><p>Eletricistas, pedreiros, costureiras, mototáxi e muito mais. Contato direto via WhatsApp.</p><a href="#profissionais" class="btn">VER PROFISSIONAIS</a></div></section>
+<section id="profissionais"><div class="container"><h2>Profissionais Disponíveis</h2><div class="busca-box"><input type="text" id="busca" placeholder="Buscar por profissão ou bairro..." onkeyup="buscar()"></div><div class="grid" id="lista"></div></div></section>
+<section id="cadastro" class="bg-cinza"><div class="container"><h2>Cadastre-se como Profissional</h2><form onsubmit="cadastrar(event)"><label>Nome Completo*</label><input type="text" id="nome" required><label>Profissão*</label><input type="text" id="profissao" required><label>Bairro*</label><input type="text" id="bairro" required><label>WhatsApp com DDD*</label><input type="tel" id="whatsapp" placeholder="88999999999" required><label><input type="checkbox" id="termos" required> Concordo em exibir meu WhatsApp publicamente*</label><button type="submit" class="btn">FINALIZAR CADASTRO</button></form><div id="msg-pagamento" class="hidden"><div class="pix-box"><h3>✅ Cadastro recebido com sucesso!</h3><p>Para ativar seu perfil, faça o pagamento único de <strong>R$ 14,99</strong> via PIX</p><h4 style="margin-top:20px;color:#FF6B00">Chave PIX:</h4><div class="pix-chave">88999518761</div><button class="copy-btn" onclick="copiarPix()">📋 Copiar Chave PIX</button><div class="instrucoes"><h4 style="color:#FF6B00;margin-bottom:10px">📝 Como proceder:</h4><ol><li>Copie a chave PIX acima</li><li>Abra seu app de banco e faça a transferência de R$ 14,99</li><li>Tire print/screenshot do comprovante de pagamento</li><li>Envie o comprovante para <strong>indicaaracati@gmail.com</strong></li><li>Seu perfil será liberado em até 24h após a confirmação</li></ol></div><p style="margin-top:15px;font-size:14px;color:#666"><strong>Email para enviar comprovante:</strong> <span style="color:#FF6B00;font-weight:600">indicaaracati@gmail.com</span></p></div></div></section>
+<section id="sobre"><div class="container"><h2>Sobre o Indica Aracati</h2><p style="text-align:center;max-width:800px;margin:0 auto;font-size:18px">O Indica Aracati conecta você diretamente aos melhores profissionais autônomos de Aracati-CE.<br><br><strong>Você é cliente?</strong> Não precisa fazer cadastro. Busque o profissional que precisa, clique no WhatsApp e negocie direto com ele. Sem intermediários, sem taxas.</p></div></section>
+<footer><div class="container"><p><a href="#admin" onclick="loginAdm()">Área do Administrador</a> | <a href="mailto:indicaaracati@gmail.com">Suporte</a></p><p style="margin-top:20px">© 2024 Direitos reservados Valdriano Cruz</p></div></footer>
+<script>
+let prof = JSON.parse(localStorage.getItem('prof')||'[]');
+const PIX_CHAVE = '88999518761';
+const PRECO_CADASTRO = 'R$ 14,99';
+const EMAIL_SUPORTE = 'indicaaracati@gmail.com';
+
+if(prof.length==0){prof=[{id:1,nome:'João Silva',profissao:'Eletricista',bairro:'Centro',whatsapp:'5588998123456',status:'aprovado'},{id:2,nome:'Maria Santos',profissao:'Costureira',bairro:'Várzea da Matriz',whatsapp:'5588999112233',status:'aprovado'}];localStorage.setItem('prof',JSON.stringify(prof))}
+
+function render(){document.getElementById('lista').innerHTML=prof.filter(p=>p.status=='aprovado').map(p=>`<div class="card"><h3>${p.nome}</h3><p><strong>Profissão:</strong> ${p.profissao}</p><p><strong>Bairro:</strong> ${p.bairro}</p><a href="https://wa.me/${p.whatsapp}" target="_blank" class="btn">📱 Chamar no WhatsApp</a></div>`).join('')}
+
+function buscar(){const t=document.getElementById('busca').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(t)?'block':'none'})}
+
+function cadastrar(e){e.preventDefault();const n={id:Date.now(),nome:document.getElementById('nome').value,profissao:document.getElementById('profissao').value,bairro:document.getElementById('bairro').value,whatsapp:'55'+document.getElementById('whatsapp').value.replace(/\D/g,''),status:'pendente',dataCadastro:new Date().toLocaleDateString('pt-BR')};prof.push(n);localStorage.setItem('prof',JSON.stringify(prof));window.open(`mailto:${EMAIL_SUPORTE}?subject=Novo Cadastro - ${n.nome}&body=DADOS DO CADASTRO:%0ANome: ${n.nome}%0AProfissão: ${n.profissao}%0ABairro: ${n.bairro}%0AWhatsApp: ${n.whatsapp}%0AData do Cadastro: ${n.dataCadastro}%0A%0AINFORMAÇÕES DE PAGAMENTO:%0AChave PIX: ${PIX_CHAVE}%0AValor: ${PRECO_CADASTRO}%0A%0AINTRUÇÕES:%0AO enviar este email, inclua o COMPROVANTE DE PAGAMENTO anexado.%0AApós confirmação, o perfil será liberado em até 24h.`);document.getElementById('msg-pagamento').classList.remove('hidden');e.target.reset();window.scrollTo(0,document.getElementById('msg-pagamento').offsetTop)}
+
+function copiarPix(){navigator.clipboard.writeText(PIX_CHAVE);alert('✅ Chave PIX copiada com sucesso:\n\n'+PIX_CHAVE)}
+
+function loginAdm(){const s=prompt('Digite a senha:');if(s=='ARACATI2024'){const p=prof.filter(x=>x.status=='pendente');if(p.length==0){alert('Nenhum cadastro pendente')}else{let m='CADASTROS PENDENTES:\n\n';p.forEach(x=>{m+=`${x.nome} - ${x.profissao} (${x.bairro})\n`});const n=prompt(m+'\nDigite o nome do profissional para aprovar:');const f=prof.find(x=>x.nome==n);if(f){f.status='aprovado';localStorage.setItem('prof',JSON.stringify(prof));render();alert('✅ Perfil aprovado com sucesso!')}else{alert('❌ Profissional não encontrado')}}}else{alert('❌ Senha incorreta')}}
+
+render();
+</script>
+</body>
+</html>
